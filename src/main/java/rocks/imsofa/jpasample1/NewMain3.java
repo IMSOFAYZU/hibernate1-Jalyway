@@ -22,7 +22,12 @@ public class NewMain3 {
         EntityManager em=Persistence.createEntityManagerFactory("database_systems").createEntityManager();
         em.getTransaction().begin();
         //use merge to update a previously created Bar via em.merge
+        Bar bar = new Bar();
+        bar.setName("test1");
+        bar.setAddr("addr123123");
+        bar.setLicense("License");
         
+        em.merge(bar);
         ///////////////////////////////////////////////////////////
         em.getTransaction().commit();
         em.close();
